@@ -98,7 +98,7 @@ class Course {
     }
 
     public void printCourseInfo() {
-        System.out.println("Course: " + courseID + " - " + courseName);
+        System.out.println("Course: " + courseID + "  " + courseName);
         if (assignedProfessor != null) {
             System.out.println("Professor: " + assignedProfessor.getName());
         }
