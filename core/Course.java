@@ -22,9 +22,11 @@ class Course {
     public Course(String CourseID, String CourseName, Professor assignProfessor, int MID, int FINAL, int ASSIGN) {
         this.courseID = CourseID;
         this.courseName = CourseName;
+        this.assignedProfessor = assignProfessor;
         this.MAX_MIDTERM = MID;
         this.MAX_FINAL = FINAL;
         this.MAX_ASSIGNMENT = ASSIGN;
+        this.studentInCourse = new ArrayList<>(); 
     }
 
     public void setCourseID(String CourseID) {
@@ -45,4 +47,68 @@ class Course {
 
     }
 
+    public void setAssignedProfessor(Professor assignProfessor) {
+        this.assignedProfessor = assignProfessor;
+    }
+
+    public Professor getAssignedProfessor() {
+        return this.assignedProfessor;
+    }
+
+    public void setMAX_MIDTERM(int MID) {
+        if (MID <= MAX_SCORE) {
+            this.MAX_MIDTERM = MID;
+        }
+    }
+
+    public int getMAX_MIDTERM() {
+        return this.MAX_MIDTERM;
+    }
+
+    public void setMAX_FINAL(int FINAL) {
+        if (FINAL <= MAX_SCORE) {
+            this.MAX_FINAL = FINAL;
+        }
+    }
+
+    public int getMAX_FINAL() {
+        return this.MAX_FINAL;
+    }
+
+    public void setMAX_ASSIGNMENT(int ASSIGN) {
+        if (ASSIGN <= MAX_SCORE) {
+            this.MAX_ASSIGNMENT = ASSIGN;
+        }
+    }
+
+    public int getMAX_ASSIGNMENT() {
+        return this.MAX_ASSIGNMENT;
+    }
+
+    public void enrollStudent(Student student) {
+        studentInCourse.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        studentInCourse.remove(student);
+    }
+
+    public ArrayList<Student> getStudentInCourse() {
+        return this.studentInCourse;
+    }
+
+    public void printCourseInfo() {
+        System.out.println("Course: " + courseID + " - " + courseName);
+        if (assignedProfessor != null) {
+            System.out.println("Professor: " + assignedProfessor.getName());
+        }
+        if (studentInCourse.isEmpty()) {
+            System.out.println("No students enrolled.");
+        } else {
+            System.out.println("Students in this course:");
+            for (Student s : studentInCourse) {
+                System.out.println("- " + s.getName());
+            }
+        }
+    }
 }
