@@ -2,35 +2,34 @@ package core;
 
 import java.util.ArrayList;
 
-class Department {
-    private int DepartID;
-    private String Depart_name;
+public class Department {
+    private String department_id;
+    private String department_name;
     private ArrayList<Student> studentsInDepartment;
+    private ArrayList<Course> coursesInDepartment;
 
-    private ArrayList<Student> studentInDepartment;
-    // TODO เก็บนิสิตที่อยู่ใน department นั้น
-
-    public Department(int DepartID, String Depart_name) {
-        this.DepartID = DepartID;
-        this.Depart_name = Depart_name;
+    public Department(String DepartID, String Depart_name) {
+        this.department_id = DepartID;
+        this.department_name = Depart_name;
         this.studentsInDepartment = new ArrayList<>();
+        this.coursesInDepartment = new ArrayList<>();
     }
 
-    public void setDeparID(int DepartID) {
-        this.DepartID = DepartID;
+    public void setDepartmentId(String DepartID) {
+        this.department_id = DepartID;
     }
 
-    public int getDepartID() {
-        return DepartID;
+    public String getDepartID() {
+        return department_id;
 
     }
 
     public void setDepart_name(String Depart_name) {
-        this.Depart_name = Depart_name;
+        this.department_name = Depart_name;
     }
 
     public String getDepart_name() {
-        return Depart_name;
+        return department_name;
 
     }
 
@@ -44,6 +43,14 @@ class Department {
 
     public ArrayList<Student> getStudentsInDepartment() {
         return studentsInDepartment;
+    }
+
+    public ArrayList<Course> getCoursesInDepartment() {
+        return coursesInDepartment;
+    }
+
+    public void addCourseToDepartment(Course course) {
+        coursesInDepartment.add(course);
     }
 
 }
