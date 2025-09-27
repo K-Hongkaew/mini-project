@@ -158,11 +158,6 @@ public class ModifyFaculty {
                 "Select exist faculty to update (1-" + university.getArrayFaculties().size() + "): ",
                 university.getArrayFaculties().size());
 
-        if (chooseFaculty < 1 || chooseFaculty > university.getArrayFaculties().size()) {
-            System.out.println("No such Faculty.");
-            return;
-        }
-
         // Update faculty name
         Faculty selected = university.getArrayFaculties().get(chooseFaculty - 1);
         System.out.println("Selected faculty: " + selected.getFacultyName());
@@ -202,11 +197,6 @@ public class ModifyFaculty {
         int chooseFaculty = InputHelper.selectorHelper(usrInput,
                 "Select exist faculty to delete (1-" + university.getArrayFaculties().size() + "): ",
                 university.getArrayFaculties().size());
-
-        if (chooseFaculty < 1 || chooseFaculty > university.getArrayFaculties().size()) {
-            System.out.println("No such Faculty.");
-            return;
-        }
 
         // selected Faculty
         Faculty selected = university.getArrayFaculties().get(chooseFaculty - 1);
@@ -321,12 +311,6 @@ public class ModifyFaculty {
                 "Select exist department (1-" + selectedFaculty.getDepartments().size() + "): ",
                 selectedFaculty.getDepartments().size());
 
-        if (chooseDepartment < 1 || chooseDepartment > selectedFaculty.getDepartments().size()) {
-            System.out.println("No such Department.");
-            return;
-
-        }
-
         Department selectDepartment = selectedFaculty.getDepartments().get(chooseDepartment - 1);
         System.out.println("Selected department " + selectDepartment.getDepart_name());
         System.out.print("Enter new Department name: ");
@@ -388,12 +372,6 @@ public class ModifyFaculty {
         int chooseDepartment = InputHelper.selectorHelper(usrInput,
                 "Select exist faculty (1-" + selectedFaculty.getDepartments().size() + "): ",
                 selectedFaculty.getDepartments().size());
-
-        if (chooseDepartment < 1 || chooseDepartment > selectedFaculty.getDepartments().size()) {
-            System.out.println("No such Department.");
-            return;
-
-        }
 
         Department selectDepartment = selectedFaculty.getDepartments().get(chooseDepartment - 1);
         System.out.println("Selected department " + selectDepartment.getDepart_name());
