@@ -277,11 +277,10 @@ public class University {
     }
 
     public void printFaultyWithDepartment() {
-        for (Faculty f : getArrayFaculties()) {
-            System.out.println("Faculty: " + f.getFacultyName());
+        for (int i = 0; i < getArrayFaculties().size(); i++) {
+            System.out.println(i + 1 + " " + getArrayFaculties().get(i).getFacultyName());
 
-            f.showAllDepartments();
-            System.out.println();
+            getArrayFaculties().get(i).showAllDepartments();
         }
     }
 
