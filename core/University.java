@@ -101,7 +101,7 @@ public class University {
                         break;
 
                     case 7:
-                        printFaultyWithDepartment();
+                        printFacultyWithDepartment();
                         usrInput.nextLine();
                         break;
 
@@ -276,7 +276,7 @@ public class University {
         faculties.remove(facultyName);
     }
 
-    public void printFaultyWithDepartment() {
+    public void printFacultyWithDepartment() {
         for (int i = 0; i < getArrayFaculties().size(); i++) {
             System.out.println(i + 1 + " " + getArrayFaculties().get(i).getFacultyName());
 
