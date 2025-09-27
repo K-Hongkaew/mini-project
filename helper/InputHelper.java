@@ -44,7 +44,6 @@ public class InputHelper {
 
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("Invalid selection: " + e.getMessage());
-                usrInput.nextLine();
             }
         }
     }
