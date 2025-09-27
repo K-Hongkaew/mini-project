@@ -498,6 +498,6 @@ public class Professor extends User {
     @Override
     public String getUserInfo() {
         return "Professor: " + getName() +
-                " (ID: " + getId();
+                " (ID: " + getId() + ")";
     }
 }
