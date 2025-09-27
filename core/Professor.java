@@ -33,7 +33,7 @@ public class Professor extends User {
             System.out.println("3. Update My Courses");
             System.out.println("4. Delete My Courses");
             System.out.println("5. View Students in My Course");
-            System.out.println("6. Edit Students Grades in My Course");
+            System.out.println("6. Set Grade");
             System.out.println("7. View My Info");
             System.out.println("0. Back");
             System.out.println("----------------------------------------------------");
