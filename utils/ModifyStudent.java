@@ -267,7 +267,7 @@ public class ModifyStudent {
 
         int chooseStudent = InputHelper.selectorHelper(usrInput,
                 "Select students to delete (1-" + university.getArrayStudents().size() + "): ",
-                university.getArrayStudents().size()) - 1;
+                university.getArrayStudents().size());
 
         Student selected = university.getArrayStudents().get(chooseStudent - 1);
         System.out.println("Selected student " + selected.getId() + " " + selected.getName());
