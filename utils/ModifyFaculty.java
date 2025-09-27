@@ -70,7 +70,7 @@ public class ModifyFaculty {
                         break;
 
                     case 8:
-                        university.printFaultyWithDepartment();
+                        university.printFacultyWithDepartment();
                         break;
 
                     case 0:
@@ -161,9 +161,14 @@ public class ModifyFaculty {
         // Update faculty name
         Faculty selected = university.getArrayFaculties().get(chooseFaculty - 1);
         System.out.println("Selected faculty: " + selected.getFacultyName());
-        System.out.print("Enter new faculty name: ");
+        System.out.print("Enter new faculty name (leave blank to skip): ");
 
         String newFacultyName = usrInput.nextLine().trim();
+
+        if (newFacultyName.isEmpty()) {
+            newFacultyName = selected.getFacultyName();
+        }
+
         selected.setFacultyName(newFacultyName);
         System.out.println("Faculty updated to: " + selected.getFacultyName());
 
@@ -291,17 +296,13 @@ public class ModifyFaculty {
      */
     public void updateDepartmentInFaculty(Scanner usrInput) {
         System.out.println("---------------- UPDATE DEPARTMENT IN FACULTY ----------------");
-        university.printFaultyWithDepartment();
+        university.printFacultyWithDepartment();
 
         // Choose faculty
         int chooseFaculty = InputHelper.selectorHelper(usrInput,
                 "Select exist faculty (1-" + university.getArrayFaculties().size() + "): ",
                 university.getArrayFaculties().size());
 
-        if (chooseFaculty < 1 || chooseFaculty > university.getArrayFaculties().size()) {
-            System.out.println("No such Faculty.");
-            return;
-        }
         Faculty selectedFaculty = university.getArrayFaculties().get(chooseFaculty - 1);
         System.out.println("Selected faculty " + selectedFaculty.getFacultyName());
         selectedFaculty.showAllDepartments();
@@ -313,14 +314,21 @@ public class ModifyFaculty {
 
         Department selectDepartment = selectedFaculty.getDepartments().get(chooseDepartment - 1);
         System.out.println("Selected department " + selectDepartment.getDepart_name());
-        System.out.print("Enter new Department name: ");
+        System.out.print("Enter new Department ID  (leave blank to use current): ");
 
         String newDepartmentId = usrInput.nextLine().trim();
+
+        if (!newDepartmentId.isEmpty()) {
+            selectDepartment.setDepartmentId(newDepartmentId);
+        }
+
         System.out.print("Enter new Department full name: ");
         String newDepartmentName = usrInput.nextLine().trim();
 
-        selectDepartment.setDepartmentId(newDepartmentId);
-        selectDepartment.setDepart_name(newDepartmentName);
+        if (!newDepartmentName.isEmpty()) {
+            selectDepartment.setDepart_name(newDepartmentName);
+        }
+
         System.out.println("Department updated to: " + selectDepartment.getDepartID() + " - "
                 + selectDepartment.getDepart_name());
 
@@ -357,7 +365,7 @@ public class ModifyFaculty {
      */
     public void deleteDepartmentInFaculty(Scanner usrInput) {
         System.out.println("---------------- DELETE DEPARTMENT IN FACULTY ----------------");
-        university.printFaultyWithDepartment();
+        university.printFacultyWithDepartment();
 
         // Choose faculty
         int chooseFaculty = InputHelper.selectorHelper(usrInput,
