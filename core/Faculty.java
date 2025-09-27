@@ -40,8 +40,8 @@ public class Faculty {
 
   // เมธอดแสดงข้อมูล department ทั้งหมด
   public void showAllDepartments() {
-    for (Department department : getDepartments()) {
-      System.out.println("-- " + department.getDepart_name());
+    for (int i = 0; i < getDepartments().size(); i++) {
+      System.out.println("-- " + (i + 1) + " " + getDepartments().get(i).getDepart_name());
     }
   }
 
