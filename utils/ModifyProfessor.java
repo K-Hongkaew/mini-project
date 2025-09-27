@@ -27,7 +27,7 @@ public class ModifyProfessor {
             System.out.println("4. Show All Professor");
             System.out.println("0. Back");
             System.out.println("--------------------------------------------------");
-
+            System.out.print("Enter your choice: ");
             try {
                 int choice = InputHelper.choiceHandler(usrInput);
                 usrInput.nextLine();
