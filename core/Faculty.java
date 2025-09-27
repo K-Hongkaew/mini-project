@@ -41,7 +41,7 @@ public class Faculty {
   // เมธอดแสดงข้อมูล department ทั้งหมด
   public void showAllDepartments() {
     for (int i = 0; i < getDepartments().size(); i++) {
-      System.out.println("-- " + (i + 1) + " " + getDepartments().get(i).getDepart_name());
+      System.out.println("-- " + (i + 1) + ". " + getDepartments().get(i).getDepart_name());
     }
   }
 
