@@ -65,7 +65,7 @@ public class Professor extends User {
                         break;
 
                     case 6:
-                        editStudentGradeInMyCourse(usrInput);
+                        setGrade(usrInput);
                         break;
 
                     case 7: // useless I know
@@ -369,7 +369,7 @@ public class Professor extends User {
      *
      * @param usrInput Scanner สำหรับรับค่าจากผู้ใช้
      */
-    public void editStudentGradeInMyCourse(Scanner usrInput) {
+    public void setGrade(Scanner usrInput) {
         System.out.println("------------------ EDIT STUDENT GRADES IN MY COURSE ------------------");
         viewMyCourses();
 
