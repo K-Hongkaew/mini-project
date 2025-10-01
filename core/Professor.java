@@ -147,11 +147,6 @@ public class Professor extends User {
                 "Select Faculty (1-" + university.getArrayFaculties().size() + "): ",
                 university.getArrayFaculties().size()) - 1;
 
-        if (facultyChoice < 0 || facultyChoice >= university.getArrayFaculties().size()) {
-            System.out.println("Invalid Faculty selection. Course creation cancelled.");
-            return;
-        }
-
         Faculty selectedFaculty = university.getArrayFaculties().get(facultyChoice);
         selectedFaculty.showAllDepartments();
 
@@ -160,10 +155,6 @@ public class Professor extends User {
                 "Select Department (1-" + selectedFaculty.getDepartments().size() + "): ",
                 selectedFaculty.getDepartments().size()) - 1;
 
-        if (departmentChoice < 0 || departmentChoice >= selectedFaculty.getDepartments().size()) {
-            System.out.println("Invalid Department selection. Course creation cancelled.");
-            return;
-        }
         Department selectedDepartment = selectedFaculty.getDepartments().get(departmentChoice);
 
         Course newCourse = new Course(courseID, courseName, midtermWeight, finalWeight, assignmentWeight, this,
@@ -209,10 +200,6 @@ public class Professor extends User {
                 "Select course to update (1-" + getClassList().size() + "): ",
                 getClassList().size()) - 1;
 
-        if (chooseCourse < 0 || chooseCourse >= getClassList().size()) {
-            System.out.println("Invalid selection.");
-        }
-
         Course selectedCourse = getClassList().get(chooseCourse);
         System.out.println("Updating Course: " + selectedCourse.getCourseID() + " - " + selectedCourse.getCourseName());
         System.out.print("Enter new Course ID (current: " + selectedCourse.getCourseID() + "): ");
@@ -257,11 +244,6 @@ public class Professor extends User {
         int chooseCourse = InputHelper.selectorHelper(usrInput,
                 "Select course to delete (1-" + getClassList().size() + "): ",
                 getClassList().size()) - 1;
-
-        if (chooseCourse < 0 || chooseCourse >= getClassList().size()) {
-            System.out.println("Invalid selection.");
-            return;
-        }
 
         Course selectedCourse = getClassList().get(chooseCourse);
         System.out.print("Are you sure you want to delete Course " + selectedCourse.getCourseName() + " (ID: "
@@ -382,11 +364,6 @@ public class Professor extends User {
                 "Select course to edit student grades (1-" + getClassList().size() + "): ",
                 getClassList().size()) - 1;
 
-        if (chooseCourse < 0 || chooseCourse >= getClassList().size()) {
-            System.out.println("Invalid selection.");
-            return;
-        }
-
         Course selectedCourse = getClassList().get(chooseCourse);
         System.out.println(
                 "Editing Grades for Course: " + selectedCourse.getCourseID() + " - " + selectedCourse.getCourseName());
@@ -405,11 +382,6 @@ public class Professor extends User {
         int chooseStudent = InputHelper.selectorHelper(usrInput,
                 "Select student to edit grades (1-" + studentsInCourse.size() + "): ",
                 studentsInCourse.size()) - 1;
-
-        if (chooseStudent < 0 || chooseStudent >= studentsInCourse.size()) {
-            System.out.println("Invalid selection.");
-            return;
-        }
 
         Student selectedStudent = studentsInCourse.get(chooseStudent);
         Course courseOfStudent = selectedStudent.matchCourse(selectedCourse.getCourseID());
@@ -460,7 +432,9 @@ public class Professor extends User {
         clearScreen();
     }
 
-    // ---------------- GETTER SETTER ---------------
+    /*---------------*/
+    /* GETTER SETTER */
+    /*---------------*/
 
     public void setPassword(String newPassword) {
         setPassword(newPassword);
@@ -486,6 +460,7 @@ public class Professor extends User {
         return classList;
     }
 
+    // assign course
     public void addCourse(Course course) {
         if (!classList.contains(course)) {
             classList.add(course);
