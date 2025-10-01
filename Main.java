@@ -19,9 +19,9 @@ public class Main {
         /* HARD CODE on university, one is pain enough */
         /*-------------------------------------------- */
 
-        /*--------------------------------------------------------------------*/
-        /* PREPAREATION DATA I HATE YOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU */
-        /*------------------------------------------------------------------- */
+        /*-------------------*/
+        /* PREPAREATION DATA */
+        /*-------------------*/
 
         University myUniver = new University("AnyUniversity", "1234");
 
@@ -153,6 +153,7 @@ public class Main {
         // Arts courses
         EN101.enrollStudent(Mia); // EN department
         MU101.enrollStudent(Mia); // MU department
+        
         /*-----*/
         /* END */
         /*-----*/
