@@ -183,16 +183,12 @@ public class ModifyProfessor {
                 "Select professor to update (1-" + university.getArrayProfessors().size() + "): ",
                 university.getArrayProfessors().size()) - 1;
 
-        if (chooseProf < 0 || chooseProf >= university.getArrayProfessors().size()) {
-            System.out.println("Invalid selection.");
-            return;
-        }
-
         Professor selected = university.getArrayProfessors().get(chooseProf);
         System.out.println("Updating info for: " + selected.getId() + " (" + selected.getName() + ")");
+        System.out.println("Leave Blank for using current ID");
 
         // Checking information
-        System.out.print("Create new Professor ID (Force add : T");
+        System.out.print("Create new Professor ID | Force add : T");
         String newId = usrInput.nextLine().trim();
         if (!newId.isEmpty()) {
 
@@ -269,11 +265,6 @@ public class ModifyProfessor {
         int chooseProf = InputHelper.selectorHelper(usrInput,
                 "Select professor to delete (1-" + university.getArrayProfessors().size() + "): ",
                 university.getArrayProfessors().size()) - 1;
-
-        if (chooseProf < 0 || chooseProf >= university.getArrayProfessors().size()) {
-            System.out.println("Invalid selection.");
-            return;
-        }
 
         Professor selected = university.getArrayProfessors().get(chooseProf);
         System.out.print("Are you sure you want to delete Professor " + selected.getName() + " (ID: "

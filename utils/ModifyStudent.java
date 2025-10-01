@@ -180,17 +180,12 @@ public class ModifyStudent {
                 "Select students to update (1-" + university.getArrayStudents().size() + "): ",
                 university.getArrayStudents().size());
 
-        // this is pain
-        if (chooseStudent < 1 || chooseStudent > university.getArrayStudents().size()) {
-            System.out.println("No such student.");
-            return;
-        }
-
         Student selected = university.getArrayStudents().get(chooseStudent - 1);
         System.out.println("Updating info for: " + selected.getId() + " (" + selected.getName() + ")");
+        System.out.println("Leave blank for using current ID");
 
         // Checking information
-        System.out.print("Create new Student ID (Force add : S");
+        System.out.print("Create new Student ID | Force add : S");
         String newId = usrInput.nextLine().trim();
         if (!newId.isEmpty()) {
 
@@ -315,11 +310,6 @@ public class ModifyStudent {
         int chooseStudent = InputHelper.selectorHelper(usrInput,
                 "Choose student number to assign: ",
                 university.getArrayStudents().size());
-
-        if (chooseStudent < 1 || chooseStudent > university.getArrayStudents().size()) {
-            System.out.println("No such student.");
-            return;
-        }
 
         Student selectedStudent = university.getArrayStudents().get(chooseStudent - 1);
         System.out.println("Selected student " + selectedStudent.getId() + " " + selectedStudent.getName());
