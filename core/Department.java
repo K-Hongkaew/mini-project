@@ -15,6 +15,8 @@ public class Department {
         this.coursesInDepartment = new ArrayList<>();
     }
 
+    // GETTER SETTER
+
     public void setDepartmentId(String DepartID) {
         this.department_id = DepartID;
     }
@@ -33,20 +35,22 @@ public class Department {
 
     }
 
-    public void addStudent(Student student) {
-        studentsInDepartment.add(student);
-    }
-
-    public void removeStudent(Student student) {
-        studentsInDepartment.remove(student);
-    }
-
     public ArrayList<Student> getStudentsInDepartment() {
         return studentsInDepartment;
     }
 
     public ArrayList<Course> getCoursesInDepartment() {
         return coursesInDepartment;
+    }
+
+    // ADD REMOVE
+
+    public void addStudent(Student student) {
+        studentsInDepartment.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        studentsInDepartment.remove(student);
     }
 
     public void addCourseToDepartment(Course course) {
