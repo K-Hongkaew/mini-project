@@ -68,7 +68,7 @@ public class Student extends User {
                         break;
 
                     case 4:
-                        displayInfo();
+                        System.out.println(getUserInfo());
                         usrInput.nextLine();
                         break;
 
@@ -122,7 +122,6 @@ public class Student extends User {
 
         if (departmentCourse.isEmpty()) {
             System.out.println("No courses available for enrollment.");
-
             return;
         }
 
@@ -218,13 +217,6 @@ public class Student extends User {
         }
     }
 
-    public void displayInfo() {
-        System.out.println("Student ID: " + getId() +
-                ", Name: " + getName() +
-                ", Department: " + getDepartment() +
-                ", Faculty: " + getFaculty());
-    }
-
     public Course matchCourse(String courseId) {
         for (Course c : enrolledCourses) {
             if (c.getCourseID().equals(courseId)) {
@@ -248,7 +240,9 @@ public class Student extends User {
 
     @Override
     public String getUserInfo() {
-        return "Student: " + getName() +
-                " (ID: " + getId() + ")";
+        return "Student ID: " + getId() +
+                ", Name: " + getName() +
+                ", Department: " + getDepartment().getDepart_name() +
+                ", Faculty: " + getFaculty().getFacultyName();
     }
 }
