@@ -141,6 +141,10 @@ public class University {
         }
     }
 
+    /*-------------------*/
+    /* CHECK ID IF EXIST */
+    /*-------------------*/
+    
     public Boolean checkExistFaculty(String facultyName) {
         for (Faculty f : getArrayFaculties()) {
             if (f.getFacultyName().equalsIgnoreCase(facultyName)) {
@@ -213,44 +217,49 @@ public class University {
         System.out.println("New professor created: " + professor.getProfessorId() + " - " + professor.getName());
     }
 
-    public void addProfessorToUniversity(Professor professor) {
-        this.professors.add(professor);
-    }
-
-    public void addStudentToUniversity(Student student) {
-        this.students.add(student);
-    }
-
-    public void addCourseToUniverity(Course course) {
-        this.courses.add(course);
-    }
-    // ----------------------------Make it clean-----------------------------
-
     // เช็ครหัสผ่าน
     public Boolean checkPassword(String password) {
         return this.universityPassword.equals(password);
     }
 
-    // Getter & Setter
+    /*---------------*/
+    /* GETTER SETTER */
+    /*---------------*/
     public String getUniversityName() {
         return universityName;
     }
 
-    public University getInstance() {
-        return this;
+    public ArrayList<Student> getArrayStudents() {
+        return this.students;
     }
 
-    // ---- To lazy to set new name for University password is enough ----
-    // public void setUniversityName(String universityName) {
-    // this.universityName = universityName;
-    // }
+    public ArrayList<Professor> getArrayProfessors() {
+        return this.professors;
+    }
 
+    public ArrayList<Faculty> getArrayFaculties() {
+        return this.faculties;
+    }
+
+    public ArrayList<Course> getArrayCourses() {
+        return this.courses;
+    }
+
+    public ArrayList<Course> getAllCourses() {
+        return this.courses;
+    }
+
+    // Set new password
     public void setUniversityPassword(Scanner usrInput) {
         System.out.println("Current University password: " + this.universityPassword);
         System.out.print("Enter new University password: ");
         this.universityPassword = usrInput.nextLine();
         System.out.println("University password updated successfully!");
     }
+
+    /*--------------*/
+    /* PRINT METHOD */
+    /*--------------*/
 
     public void showAllFaculties() {
         System.out.println("---------------- CURRENT FACULTIES IN UNIVERSITY ----------------");
@@ -264,16 +273,6 @@ public class University {
             }
         }
         System.out.println("----------------------------------------------------------------");
-    }
-
-    // Method: เพิ่ม Faculty
-    public void addFaculty(Faculty faculty) {
-        faculties.add(faculty);
-    }
-
-    // Method: ลบ Faculty ตามชื่อ
-    public void removeFaculty(Faculty facultyName) {
-        faculties.remove(facultyName);
     }
 
     public void printFacultyWithDepartment() {
@@ -305,15 +304,12 @@ public class University {
 
     }
 
-    // Method: แสดงนักเรียนทั้งหมด
     public void showAllStudents() {
         System.out.println("---------------- CURRENT STUDENTS IN UNIVERSITY ----------------");
         if (getArrayStudents().isEmpty()) {
             System.out.println("No students available.");
         } else {
 
-            // Not optimal but who cares
-            // We don't have that many students
             for (int i = 0; i < getArrayStudents().size(); i++) {
                 Student s = getArrayStudents().get(i);
                 String facultyName = (s.getFaculty() == null) ? "Null" : s.getFaculty().getFacultyName();
@@ -327,7 +323,6 @@ public class University {
         System.out.println("----------------------------------------------------------------");
     }
 
-    // Method: แสดงอาจารย์ทั้งหมด
     public void showAllProfessors() {
         System.out.println("---------------- CURRENT PROFESSORS IN UNIVERSITY ----------------");
         if (getArrayProfessors().isEmpty()) {
@@ -391,12 +386,26 @@ public class University {
         System.out.println("-----------------------------------------------------------");
     }
 
-    // Method: เพิ่ม student
+    /*----------- */
+    /* ADD REMOVE */
+    /*------------*/
+
+    public void addProfessorToUniversity(Professor professor) {
+        this.professors.add(professor);
+    }
+
+    public void addStudentToUniversity(Student student) {
+        this.students.add(student);
+    }
+
+    public void addCourseToUniverity(Course course) {
+        this.courses.add(course);
+    }
+
     public void addStudent(Student student) {
         students.add(student);
     }
 
-    // Method: เพิ่ม professor
     public void addProfessor(Professor professor) {
         professors.add(professor);
     }
@@ -413,24 +422,12 @@ public class University {
         courses.remove(course);
     }
 
-    // We have 20K people we clone, we run out of memory guys
-    public ArrayList<Student> getArrayStudents() {
-        return this.students;
+    public void addFaculty(Faculty faculty) {
+        faculties.add(faculty);
     }
 
-    public ArrayList<Professor> getArrayProfessors() {
-        return this.professors;
+    public void removeFaculty(Faculty facultyName) {
+        faculties.remove(facultyName);
     }
 
-    public ArrayList<Faculty> getArrayFaculties() {
-        return this.faculties;
-    }
-
-    public ArrayList<Course> getArrayCourses() {
-        return this.courses;
-    }
-
-    public ArrayList<Course> getAllCourses() {
-        return this.courses;
-    }
 }
